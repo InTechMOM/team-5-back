@@ -11,7 +11,3 @@ export const bdConnection = async () => {
         console.log(err, 'Conexion fallida a la base de datos');
     }
 };
-
-
-
-bdConnection();
