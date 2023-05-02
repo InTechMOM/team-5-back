@@ -2,6 +2,7 @@ import express from 'express';
 import { port } from "./config/index.js";
 
 const app = express(); 
+console.log("prueba git");
 
 app.get('/', (request, response, error) => {
     response.send('status: ok')
