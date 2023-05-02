@@ -1,8 +1,12 @@
+import morgan from 'morgan';
 import express from 'express'; 
+import { bdConnection } from './config/db.js';
 import { port } from "./config/index.js";
 
 const app = express(); 
 console.log("prueba git");
+
+bdConnection()
 
 app.get('/', (request, response, error) => {
     response.send('status: ok')
