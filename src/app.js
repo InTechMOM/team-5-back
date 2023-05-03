@@ -4,7 +4,6 @@ import { bdConnection } from './config/db.js';
 import { port } from "./config/index.js";
 
 const app = express(); 
-console.log("prueba git");
 
 bdConnection()
 
