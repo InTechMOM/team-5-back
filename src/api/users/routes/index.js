@@ -3,8 +3,7 @@ import router from '../controllers/post.js';
 
 
 function routerApi(app){
-    app.use('/user', router);
-     
+    app.use('/user', router);    
 }
 
 export default routerApi;

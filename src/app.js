@@ -6,7 +6,11 @@ import routerApi from './api/users/routes/index.js';
 
 const app = express(); 
 
+app.use(express.json());
+
 bdConnection();
+
+
 
 routerApi(app);
 
