@@ -1,9 +1,8 @@
-import express from 'express'; 
-import router from '../controllers/post.js';
+// import router from '../controllers/post.js';
+import routerApi from "../../../routes"
+import validateUserCreation from "../validations"
+import createUsers from "../controllers/post";
 
-
-function routerApi(app){
-    app.use('/user', router);    
-}
+routerApi.post('/users', validateUserCreation, createUsers);
 
 export default routerApi;
