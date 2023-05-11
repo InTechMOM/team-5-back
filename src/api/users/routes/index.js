@@ -1,4 +1,3 @@
-// import router from '../controllers/post.js';
 import routerApi from "../../../routes"
 import validateUserCreation from "../validations"
 import createUsers from "../controllers/post";

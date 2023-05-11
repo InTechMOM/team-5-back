@@ -1,12 +1,23 @@
-import Users from "../../../models/users.js"
+import User from '../../../models/Users.js'
 
-const createUsers = async (req, res) => {
-    const body = req.body;     
+const createUsers = async (req, res, next) => {
+    //peticion para crear el usuario - usar el modelo
 
-    res.status(201).json({
-        message: 'created',
-        data: body
-    }); 
-};
+   try{
+    const {firstName, lastName, email, rol} = req.body;     
+    const creationDate = new Date().toISOString();
+    const user = new User({firstName, lastName, email, rol, creationDate});
+
+    await Promise(Promise
+        .resolve("ok")
+        .then(() => {console.log("todo ok")})
+        .catch((error) => {console.log(error)}))
+
+    res.status(201).json({message: 'User created'}); 
+    }catch{error} {
+        console.log(error);
+        res.status(500).json({error: "Internal Server Error"});
+    }
+}; 
 
 export default createUsers;
