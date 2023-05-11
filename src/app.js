@@ -14,11 +14,11 @@ bdConnection();
 
 app.use("/api", routerApi);
 
-app.use(errorHandler); 
-
 app.get('/', (request, response, error) => {
     response.send('status: ok')
 })
+
+app.use(errorHandler); 
 
 app.listen(port, (error) => {
     if(error){

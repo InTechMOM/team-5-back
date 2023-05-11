@@ -26,7 +26,14 @@ const userSchema = new mongoose.Schema({
         default: Date.now()},  
 }); 
 
-// module.exports = mongoose.model('User', userSchema);
+const user1 = mongoose.model('user1', userSchema); 
+
+user1.create({ firstName: 'Karen', lastName: 'Echavarria', email: 'some@example.com', rol:'student', creationDate: new Date()}, 
+    function(err, user1) {
+    if (err) return handleError(err);
+  });
+
+
 
 const User = mongoose.model('User', userSchema);
 
