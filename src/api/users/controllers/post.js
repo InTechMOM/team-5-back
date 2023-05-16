@@ -1,5 +1,4 @@
 import User from '../../../models/Users.js'
-import errorHandler from '../middleware/errorHandler.js';
 
 const createUsers = async (req, res, next) => {
     //peticion para crear el usuario - usar el modelo
@@ -10,7 +9,7 @@ try{
     await user.save(); 
     return res.status(201).json({message: 'User created'}); 
 }catch{error} {
-    next(errorHandler); 
+    next(error); 
 }}; 
 
 export default createUsers;

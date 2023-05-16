@@ -1,9 +1,9 @@
 import express from 'express'; 
-import router from '../controllers/post.js';
+import userRouter from '../src/api/users/routes/index.js'
 
-const routerApi = express.Router()
+const router = express.Router()
 
-    routerApi.use('/user', router);    
+    router.use('/users', userRouter);    
     // routerApi.use('/video', router);
 
-export default routerApi;
+export default router;

@@ -1,7 +1,13 @@
-import routerApi from "../../../routes"
-import validateUserCreation from "../validations"
-import createUsers from "../controllers/post";
+import express from 'express'; 
+import validateUserCreation from "../validations/index.js"
+import createUsers from "../controllers/post.js";
+import {getUsers, getUserById} from "../controllers/get.js";
 
-routerApi.post('/users', validateUserCreation, createUsers);
 
-export default routerApi;
+const userRouter = express.Router();
+
+userRouter.post('/', validateUserCreation, createUsers);
+userRouter.get('/', getUsers); 
+userRouter.get('/:id', getUserById);
+
+export default userRouter;
