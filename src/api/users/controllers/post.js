@@ -4,7 +4,7 @@ import User from '../../../models/users.js'
  * @openapi
  * /api/users:
  *   post:
- *     description: Creation API for users
+ *     description: create User
  *     parameters:
  *       - name: firstName
  *         in: formData
@@ -26,8 +26,10 @@ import User from '../../../models/users.js'
  *         required: true
  *         enum: ['student', 'teacher']
  *     responses:
- *       200:
- *         description: User created
+ *       201:
+ *         description: "{
+ *                          message: User created
+ *                       }"
  *       400:
  *         description: Bad request
  */
@@ -44,7 +46,7 @@ const createUsers = async (req, res, next) => {
 		await user.save();
 
 		return res.status(201).json({ message: 'User created' });
-	} catch { error } {
+	} catch (error) {
 		next(error);
 	}
 };

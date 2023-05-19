@@ -6,22 +6,38 @@ import User from '../../../models/users.js'
  * @openapi
  * /api/users:
  *   get:
- *     description: Users list
+ *     summary: Get Users
  *     responses:
- *       200:
- *         description: arrayUsers
- *         content: 
+ *       '200':
+ *         description: List of users
+ *         content:
  *           application/json:
- *              schema:
- *                type: array
- *                items:
- *                  type: object
- *                  properties: 
- *                    firstName: 
- *                      type: String
- *       400:
- *         description: Bad request
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   firstName:
+ *                     type: string
+ *                     example: Karen
+ *                   lastName:
+ *                     type: string
+ *                     example: Echavarria
+ *                   email:
+ *                     type: string
+ *                     example: some@example.com
+ *                   rol:
+ *                     type: string
+ *                     enum: ['student', 'teacher']
+ *                     example: student
+ *                   creationDate:
+ *                     type: string
+ *                     format: date-time
+ *                     example: '2023-05-18T12:00:00Z'
+ *       '404':
+ *         description: Users not found
  */
+
 const getUsers = async (req, res, next) => {
 	try {
 		const arrayUsers = await User.find();
@@ -29,7 +45,7 @@ const getUsers = async (req, res, next) => {
 		return res.status(200).json({
 			list: arrayUsers
 		})
-	} catch { error } {
+	} catch (error) {
 		next(error);
 	}
 };
@@ -38,34 +54,49 @@ const getUsers = async (req, res, next) => {
 //buscar Id
 /**
  * @openapi
- * /api/users/:id:
+ * /api/users/{Id}:
  *   get:
- *     description: Creation API for users
+ *     summary: Get User by ID
  *     parameters:
- *       - name: firstName
- *         in: formData
- *         type: string
+ *       - name: userId
+ *         in: path
+ *         description: User ID
  *         required: true
- *       - name: lastName
- *         in: formData
- *         type: string
- *         required: true
- *       - name: email
- *         in: formData
- *         type: string
- *         required: true
- *         match: /.+\@.+\..+/
- *         unique: true
- *       - name: rol
- *         in: formData
- *         type: string
- *         required: true
- *         enum: ['student', 'teacher']
+ *         schema:
+ *           type: string
  *     responses:
- *       200:
- *         description: User created
- *       400:
- *         description: Bad request
+ *       '200':
+ *         description: User retrieved
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: User retrieved
+ *                 data:
+ *                   type: object
+ *                   properties:
+ *                     firstName:
+ *                       type: string
+ *                       example: Karen
+ *                     lastName:
+ *                       type: string
+ *                       example: Echavarria
+ *                     email:
+ *                       type: string
+ *                       example: some@example.com
+ *                     rol:
+ *                       type: string
+ *                       enum: ['student', 'teacher']
+ *                       example: student
+ *                     creationDate:
+ *                       type: string
+ *                       format: date-time
+ *                       example: 2023-05-18T12:00:00Z
+ *       '404':
+ *         description: User not found
  */
 const getUserById =  async (req, res) => {
     const id = req.params.id;
