@@ -5,37 +5,38 @@ import User from '../../../models/users.js'
 /**
  * @openapi
  * /api/users:
- *   get:
- *     summary: Get Users
- *     responses:
- *       '200':
- *         description: List of users
- *         content:
- *           application/json:
- *             schema:
- *               type: array
- *               items:
- *                 type: object
- *                 properties:
- *                   firstName:
- *                     type: string
- *                     example: Karen
- *                   lastName:
- *                     type: string
- *                     example: Echavarria
- *                   email:
- *                     type: string
- *                     example: some@example.com
- *                   rol:
- *                     type: string
- *                     enum: ['student', 'teacher']
- *                     example: student
- *                   creationDate:
- *                     type: string
- *                     format: date-time
- *                     example: '2023-05-18T12:00:00Z'
- *       '404':
- *         description: Users not found
+ *  get:
+ *   summary: Users list
+ *   tags: [Users]
+ *   responses:
+ *     '200':
+ *       description: List of users
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: array
+ *             items:
+ *               type: object
+ *               properties:
+ *                 firstName:
+ *                   type: string
+ *                   example: Karen
+ *                 lastName:
+ *                   type: string
+ *                   example: Echavarria
+ *                 email:
+ *                   type: string
+ *                   example: some@example.com
+ *                 rol:
+ *                   type: string
+ *                   enum: ['student', 'teacher']
+ *                   example: student
+ *                 creationDate:
+ *                   type: string
+ *                   format: date-time
+ *                   example: '2023-05-18T12:00:00Z'
+ *     '404':
+ *       description: Users not found
  */
 
 const getUsers = async (req, res, next) => {
@@ -56,9 +57,10 @@ const getUsers = async (req, res, next) => {
  * @openapi
  * /api/users/{Id}:
  *   get:
- *     summary: Get User by ID
+ *     summary: Get User by Id
+ *     tags: [Users]
  *     parameters:
- *       - name: userId
+ *       - name: Id
  *         in: path
  *         description: User ID
  *         required: true
@@ -94,7 +96,7 @@ const getUsers = async (req, res, next) => {
  *                     creationDate:
  *                       type: string
  *                       format: date-time
- *                       example: 2023-05-18T12:00:00Z
+ *                       example: '2023-05-18T12:00:00Z'
  *       '404':
  *         description: User not found
  */

@@ -1,37 +1,43 @@
 import User from '../../../models/users.js'
 
-/**
+ /**
  * @openapi
  * /api/users:
  *   post:
- *     description: create User
- *     parameters:
- *       - name: firstName
- *         in: formData
- *         type: string
- *         required: true
- *       - name: lastName
- *         in: formData
- *         type: string
- *         required: true
- *       - name: email
- *         in: formData
- *         type: string
- *         required: true
- *         match: /.+\@.+\..+/
- *         unique: true
- *       - name: rol
- *         in: formData
- *         type: string
- *         required: true
- *         enum: ['student', 'teacher']
+ *     summary: Create User
+ *     tags: [Users]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               firstName:
+ *                 type: string
+ *               lastName:
+ *                 type: string
+ *               email:
+ *                 type: string
+ *               rol:
+ *                 type: string
+ *             required:
+ *               - firstName
+ *               - lastName
+ *               - email
+ *               - rol
+ *           example:
+ *             firstName: Samuel
+ *             lastName: Reyes
+ *             email: some@example.com
+ *             rol: Soy Docente
  *     responses:
- *       201:
- *         description: "{
- *                          message: User created
- *                       }"
- *       400:
- *         description: Bad request
+ *       '201':
+ *         description: User Created
+ *       '400':
+ *         description: Bad Request
+ *       '500':
+ *         description: Error 
  */
 
 const createUsers = async (req, res, next) => {
