@@ -25,7 +25,7 @@ const videoSchema = new mongoose.Schema({
       validator: function (value) {
         return value.length >= 5 && value.length <= 250;
       },
-      message: 'El título debe tener entre 5 y 250 caracteres.',
+      message: 'La descripción debe tener entre 5 y 250 caracteres.',
     },
   },
   liderFullName: {
