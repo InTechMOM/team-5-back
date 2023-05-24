@@ -11,7 +11,10 @@ const swaggerOptions = {
       apis: [
         'app.js',
         './src/api/users/controllers/post.js',
-        './src/api/users/controllers/get.js'
+        './src/api/users/controllers/get.js',
+        './src/api/videos/controllers/post.js',
+        './src/api/videos/controllers/get.js',
+
     ], 
     }
 
