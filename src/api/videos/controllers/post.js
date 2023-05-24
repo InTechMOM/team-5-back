@@ -1,4 +1,4 @@
-import Video from '../../../models/videos.js';
+import Video from "../../../models/videos.js";
 
 const createVideos = async (req, res, next) => {
 	//peticion para crear el usuario - usar el modelo
