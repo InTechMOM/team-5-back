@@ -6,9 +6,11 @@ import { port } from "./config/index.js";
 import routerApi from './routes.js';
 import errorHandler from './api/users/middleware/errorHandler.js';
 import { openApiSpecification } from './config/swagger.js';
+import cors from 'cors'; 
 
 const app = express();
 
+app.use(cors()); 
 app.use(express.json());
 
 bdConnection();
