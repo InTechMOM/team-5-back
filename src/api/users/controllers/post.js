@@ -30,7 +30,7 @@ import User from '../../../models/users.js'
  *             firstName: Samuel
  *             lastName: Reyes
  *             email: some@example.com
- *             rol: Soy Docente
+ *             rol: Docente
  *     responses:
  *       '201':
  *         description: User Created
