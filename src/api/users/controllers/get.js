@@ -9,7 +9,7 @@ const getUsers = async (req, res, next) => {
 		return res.status(200).json({
 			list: arrayUsers
 		})
-	} catch { error } {
+	} catch (error) {
 		next(error);
 	}
 };

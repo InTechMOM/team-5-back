@@ -1,4 +1,4 @@
-import Video from "../../../models/videos.js";
+import Video from '../../../models/videos.js';
 
 const createVideos = async (req, res, next) => {
 	//peticion para crear el usuario - usar el modelo
@@ -7,12 +7,12 @@ const createVideos = async (req, res, next) => {
     
 		const creationDate = new Date().toISOString();
 
-		const video = new video({ url, tittle, description, liderFullName, liderEmail, creationDate });
+		const video = new Video({ url, tittle, description, liderFullName, liderEmail, creationDate });
 
 		await video.save();
 
 		return res.status(201).json({ message: 'Video created' });
-	} catch { error } {
+	} catch (error) {
 		next(error);
 	}
 };

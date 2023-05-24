@@ -12,7 +12,7 @@ const createUsers = async (req, res, next) => {
 		await user.save();
 
 		return res.status(201).json({ message: 'User created' });
-	} catch { error } {
+	} catch (error){
 		next(error);
 	}
 };
