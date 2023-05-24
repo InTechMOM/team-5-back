@@ -14,7 +14,7 @@ const videoSchema = new mongoose.Schema({
       validator: function (value) {
         return value.length === 90;
       },
-      message: 'El título debe tener 90 caracteres.',
+      message: 'El título debe tener máximo 90 caracteres.',
     },
   },
   description: {
@@ -25,10 +25,10 @@ const videoSchema = new mongoose.Schema({
       validator: function (value) {
         return value.length === 250;
       },
-      message: 'El título debe tener 250 caracteres.',
+      message: 'El título debe tener máximo 250 caracteres.',
     },
   },
-  lideFullName: {
+  liderFullName: {
     type: String,
     unique: true,
     required: true,
@@ -39,8 +39,9 @@ const videoSchema = new mongoose.Schema({
 		match: /.+\@.+\..+/,
 		unique: true
 	},
-  fechaYHora: {
-	timestamps: true,   
+  creationDate: {
+		type: Date,
+		default: Date.now()
 	},
 });
 
