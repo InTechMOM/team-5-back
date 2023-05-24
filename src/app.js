@@ -1,9 +1,11 @@
 import morgan from 'morgan';
-import express from 'express';
+import express from 'express'; 
+import swaggerUi from 'swagger-ui-express'
 import { bdConnection } from './config/db.js';
 import { port } from "./config/index.js";
 import routerApi from './routes.js';
 import errorHandler from './api/users/middleware/errorHandler.js';
+import { openApiSpecification } from './config/swagger.js';
 
 const app = express();
 
@@ -18,6 +20,9 @@ app.get('/', (request, response, error) => {
 })
 
 app.use(errorHandler);
+
+app.use('/docs', swaggerUi.serve);
+app.get('/docs', swaggerUi.setup(openApiSpecification));
 
 app.listen(port, (error) => {
 	if (error) {
