@@ -6,10 +6,10 @@ const createQualificationSchema = Joi.object({
 	fullNameStudent: Joi.string().required(),
 	projectName: Joi.string().required(), 
 	url: Joi.string().required(),
-	criticalThinking: Joi.number(25,50,75,100).required(), 
-  creativity: Joi.number(25,50,75,100).required(),
-  collaboration: Joi.number(25,50,75,100).required(),
-  communication: Joi.number(25,50,75,100).required()	
+	criticalThinking: Joi.number().valid(25,50,75,100).required(), 
+  creativity: Joi.number().valid(25,50,75,100).required(),
+  collaboration: Joi.number().valid(25,50,75,100).required(),
+  communication: Joi.number().valid(25,50,75,100).required()	
 });
 
 const validateQualificationCreation = (req, res, next) => {
