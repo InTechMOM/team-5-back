@@ -49,6 +49,6 @@ const qualificationsSchema = new mongoose.Schema({
 	},
 });
 
-const Qualification = mongoose.model('Qualification', qualificationsSchema);
+const Qualifications = mongoose.model('Qualification', qualificationsSchema);
 
-export default Qualification;
+export default Qualifications;
