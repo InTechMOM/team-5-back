@@ -15,26 +15,26 @@ import Video from '../../../models/videos.js';
  *             properties:
  *               url:
  *                 type: string
- *               tittle:
+ *               title:
  *                 type: string
  *               description:
  *                 type: string
- *               liderFullName:
+ *               studentFullName:
  *                 type: string
- *               liderEmail:
+ *               studentEmail:
  *                 type: string
  *             required:
  *               - url
- *               - tittle
+ *               - title
  *               - description
- *               - liderFullName
- *               - liderEmail
+ *               - studentFullName
+ *               - studentEmail
  *           example:
  *             url: 'https://www.youtube.com/watch?v=2V-IYdcsoAw'
- *             tittle: 'El Átomo'
+ *             title: 'El Átomo'
  *             description: 'Adjunto video del átomo.'
- *             liderFullName: 'Pedro Pérez'
- *             liderEmail: pedroperez@example.com
+ *             studentFullName: 'Pedro Pérez'
+ *             studentEmail: pedroperez@example.com
  *     responses:
  *       '201':
  *         description: User Created
@@ -47,11 +47,11 @@ import Video from '../../../models/videos.js';
 const createVideos = async (req, res, next) => {
 	//peticion para crear el usuario - usar el modelo
 	try {
-		const { url, tittle, description, liderFullName, liderEmail } = req.body;
+		const { url, title, description, studentFullName, studentEmail } = req.body;
     
 		const creationDate = new Date().toISOString();
 
-		const video = new Video({ url, tittle, description, liderFullName, liderEmail, creationDate });
+		const video = new Video({ url, title, description, studentFullName, studentEmail, creationDate });
 
 		await video.save();
 

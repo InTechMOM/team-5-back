@@ -6,7 +6,7 @@ const videoSchema = new mongoose.Schema({
     unique: true,
     match: /^(https?:\/\/)?(www\.)?youtube\.com\/watch\?v=[\w-]{11}(&\S+)?$/,
   }, 
-  tittle: {
+  title: {
     type: String,
     unique: true,
     required: true,
@@ -28,12 +28,12 @@ const videoSchema = new mongoose.Schema({
       message: 'La descripción debe tener entre 5 y 250 caracteres.',
     },
   },
-  liderFullName: {
+  studentFullName: {
     type: String,
     unique: true,
     required: true,
   },
-	liderEmail: {
+	studentEmail: {
 		type: String,
 		required: true,
 		match: /.+\@.+\..+/,

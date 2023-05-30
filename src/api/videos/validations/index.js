@@ -2,10 +2,10 @@ import Joi from "joi";
 
 const createVideoSchema = Joi.object({
 	url: Joi.string().required(), 
-  tittle: Joi.string().required().min(2).max(90), 
+  title: Joi.string().required().min(2).max(90), 
   description: Joi.string().required().min(5).max(250), 
-  liderFullName: Joi.string().required(), 
-  liderEmail: Joi.string().required().email(), 
+  studentFullName: Joi.string().required(), 
+  studentEmail: Joi.string().required().email(), 
 });
 
 

@@ -20,16 +20,16 @@ import Video from "../../../models/videos.js";
  *                   url:
  *                     type: string
  *                     example: 'https://www.youtube.com/watch?v=2V-IYdcsoAw'
- *                   tittle:
+ *                   title:
  *                     type: string
  *                     example: 'El átomo'
  *                   description:
  *                     type: string
  *                     example: 'Adjunto el video del átomo'
- *                   liderFullName:
+ *                   studentFullName:
  *                     type: string
  *                     example: 'Pedro Pérez'
- *                   liderEmail:
+ *                   studentEmail:
  *                     type: string
  *                     example: pedroperez@example.com
  *                   creationDate:
