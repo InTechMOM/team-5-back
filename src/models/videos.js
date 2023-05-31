@@ -30,7 +30,6 @@ const videoSchema = new mongoose.Schema({
   },
   studentFullName: {
     type: String,
-    unique: true,
     required: true,
   },
 	studentEmail: {
