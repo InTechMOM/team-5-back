@@ -52,7 +52,6 @@ import Qualifications from "../../../models/qualifications.js";
  *             creativity: 50
  *             collaboration: 100
  *             communication: 75
- *             creationDate: 2023-05-18T12:00:00Z
  * 
  *     responses:
  *       '201':

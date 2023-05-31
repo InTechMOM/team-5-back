@@ -132,9 +132,9 @@ const getQualifications = async (req, res, next) => {
  */
 const getQualificationsByEmail =  async (req, res) => {
     const emailTeacher = req.params.emailTeacher;
-    const projectName = await Qualifications.findOne(emailTeacher);
+    const qualifications = await Qualifications.findOne(emailTeacher);
     
-    if(!projectName){
+    if(!qualifications){
         return res.status(404).json(
             {
             message: "teacher without qualified projects"})
@@ -142,7 +142,7 @@ const getQualificationsByEmail =  async (req, res) => {
 
 	return res.status(200).json(
 		{
-			data: arrayQualifications
+			data: qualifications
 		}
 	)
 };
