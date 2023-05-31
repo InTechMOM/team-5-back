@@ -37,7 +37,6 @@ const videoSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 		match: /.+\@.+\..+/,
-		unique: true
 	},
   creationDate: {
 		type: Date,

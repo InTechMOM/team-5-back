@@ -5,13 +5,11 @@ const qualificationsSchema = new mongoose.Schema({
 		type: String,
 		required: true,
     match: /.+\@.+\..+/,
-    unique: true
 	},
   emailTeacher: {
 		type: String,
 		required: true,
     match: /.+\@.+\..+/,
-    unique: true
 	},
   fullNameStudent: {
 		type: String,
